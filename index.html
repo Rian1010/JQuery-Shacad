@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+	<body style="font-family: Arial">
+		<p class="foo">This is Paragraph 1</p>
+		<p class="foo">This is Paragraph 2</p>
+		<p id="bar">This is Paragraph 3</p>
+
+		<input id="test">
+<!--<button onclick="displayValue();">Click Me</button>-->
+		<button id="foobar">No, Click Me</button>
+
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.js"
+				integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+					crossorigin="anonymous"></script>
+
+		<script>
+			//GetElementsByTag Comparison
+			/*Vanilla Javascript
+			var paragraph = document.getElementsByTagName("p");
+			console.log(paragraph);
+			//JQuery
+			var jQueryPar = $("p");
+			console.log(jQueryPar);*/
+
+			//GetElementsClassName Comparison
+			/*Vanilla Javascript
+			var paragraph = document.getElementsByClassName("foo");
+			console.log(paragraph);
+			//JQuery
+			var jQueryPar = $(".foo");
+			console.log(jQueryPar);*/
+
+			/*
+			var paragraph = document.getElementsByTagName("p");
+			for(var i=0;i< paragraph.length; i++) {
+				document.write(paragraph[i].innerHTML = "Edited by Vanilla JS");
+			}
+			document.write(paragraph[i].innerHTML);
+			*/
+
+			/*
+			//JQuery
+			var jQueryPar = $("p");
+			jQueryPar.html("This has been edited by jQuery");
+		=================== CSS Sample =====================
+			var jQueryStyle = $("#bar");
+			jQueryStyle.css({"background-color":"red"})
+			*/
+			/*
+			var input = document.GetElementById("test").value;
+			alert(input);
+
+			var jqueryValue = $('#test');
+			function displayValue() {
+				alert(jqueryValue.val());
+			}*/
+
+			//=========== Event Handling ===========
+			document.getElementById("foobar").onclick = myFooFunc;
+
+			function myFooFunc() {
+				alert("Vanilla JS Strikes Again!");
+			}
+
+			document.getElementById("foobar").addEventListener("click", myBarFunc);
+
+			function myBarFunc() {
+				alert("JQuery Event Triggered");
+			}
+
+			$(document).ready(function() {
+				$('.foo').on('click', mouseEvent);
+
+				function mouseEvent() {
+					alert("Finished!");
+				}
+            });
+		</script>
+	</body>
+</html>
